@@ -1,13 +1,14 @@
+// ქმნის დათაბეიზს სადაც შეინახება ყველაფერი
 let dataBase = [];
 
 // ფორმის სუბმიტის ივენთის დამუშავება
 document.getElementById("registrationForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // ფორმის ავტომატური გაგზავნის თავიდან აცილება
+    event.preventDefault(); // არ არესეტებს
 
     // ფორმის ველებიდან მონაცემების წამოღება
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
+    let name = document.getElementById("name").value;// მოაქვს სახელი
+    let email = document.getElementById("email").value;//მოაქვს ემაილი
+    let password = document.getElementById("password").value;//მოაქვს პაროლი
 
     // უსაფრთხოების ფუნქციონალი - მონაცემების დუბლირების შემოწმება
     let accountExists = false;
@@ -21,20 +22,20 @@ document.getElementById("registrationForm").addEventListener("submit", function(
 
     // თუ ექაუნთი არსებობს, გამოვიტანთ შეტყობინებას
     if (accountExists) {
-        alert("Account with this email already exists!");
+        alert("Account with this email already exists!");//თუ ექაუნთი არსებობს ამ მესიჯს გამოიტანს
     } else {
-        // თუ არ არსებობს, დავამატებთ ახალ ობიექტს dataBase-ში
+        // თუ არ არსებობს, დავამატებთ ახალ იუზერს dataBase-ში
         let newUser = {
             name: name,
             email: email,
             password: password
         };
-        dataBase.push(newUser);
-        alert("Account successfully created!");
+        dataBase.push(newUser);// დაამატებს ახალ აქაუნთს
+        alert("Account successfully created!");//გამოიტანს მესიჯს 
     }
 
     // ფორმის ველების გასუფთავება
-    document.getElementById("name").value = '';
-    document.getElementById("email").value = '';
-    document.getElementById("password").value = '';
+    document.getElementById("name").value = '';// სახელის მნიშვნელობა
+    document.getElementById("email").value = '';//ემაილის მნიშვნელობა
+    document.getElementById("password").value = '';//პაროლის მნიშვნელობა
 });
